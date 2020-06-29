@@ -1,0 +1,20 @@
+class Solution {
+    public int maxProfit(int[] prices) {
+        
+        int T_ik0 = 0;
+        int T_ik1 = Integer.MIN_VALUE;
+        
+        for(int val : prices){
+        
+            //As k = Infinity here, it has no significance in the problem.
+            int temp = T_ik0;
+            
+            T_ik0 = Math.max(T_ik0, T_ik1 + val);
+            T_ik1 = Math.max(T_ik1, temp - val);
+            
+        }
+        
+        return T_ik0;
+        
+    }
+}
