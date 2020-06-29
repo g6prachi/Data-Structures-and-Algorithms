@@ -1,0 +1,18 @@
+class Solution {
+    public int maxProfit(int[] prices) {
+        
+        int T_ik0 = 0; //Max profit till i-th day (current day), if we don't own any stock at the end of the day
+        
+        int T_ik1 = Integer.MIN_VALUE; //Max profit till i-th day (current day), if we own 1 stock at the end of the day
+        
+        for(int val : prices){
+            
+            T_ik0 = Math.max(T_ik0, T_ik1 + val);
+            T_ik1 = Math.max(T_ik1, -val);
+            
+        }
+        
+        return T_ik0; //contains the total profit after selling the stocks
+        
+    }
+}
